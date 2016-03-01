@@ -1,5 +1,12 @@
 Transactions = new Mongo.Collection('transactions');
 
+Transactions.allow({
+    insert: function(userId, Doc){
+        return !!userId;
+    }
+});
+
+
 TransactionSchema = new SimpleSchema({
 
     name: {
@@ -15,6 +22,9 @@ TransactionSchema = new SimpleSchema({
         label: "Author",
         autoValue: function() {
             return this.userId
+        },
+        autoform: {
+            type: "hidden"
         }
     },
     createdAt: {
@@ -22,6 +32,9 @@ TransactionSchema = new SimpleSchema({
         label: "Created At",
         autoValue: function() {
             return new Date()
+        },
+        autoform: {
+            type: "hidden"
         }
     }
 
