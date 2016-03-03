@@ -6,12 +6,24 @@ Transactions.allow({
     }
 });
 
+Category = new SimpleSchema({
+    name: {
+        type: String,
+    }
+})
 
 TransactionSchema = new SimpleSchema({
 
-    name: {
+    title: {
         type: String,
-        label: "Name"
+        label: "Title"
+    },
+    price: {
+        type: Number,
+        label: "Price"
+    },
+    category: {
+        type: [Category]
     },
     desc: {
         type: String,
