@@ -1,3 +1,12 @@
 <template name="Transactions">
     {{> NewTransaction}}
+    <section class="recipes">
+        {{#if Template.subscriptionsReady}}
+            {{#each transactions}}
+                {{> Transaction}}
+            {{/each}}
+        {{else}}
+            <p>Loading</p>
+        {{/if}}
+    </section>
 </template>

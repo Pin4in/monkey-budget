@@ -8,9 +8,9 @@ Transactions.allow({
 
 Category = new SimpleSchema({
     name: {
-        type: String,
+        type: String
     }
-})
+});
 
 TransactionSchema = new SimpleSchema({
 

@@ -1,0 +1,12 @@
+<template name="Transaction">
+    <article class="recipe">
+        <h3>{{title}}</h3>
+        <p>{{desc}}</p>
+        <p>
+            {{ #each this.category}}
+                <span class="ingredient">{{name}}</span>
+            {{ /each}}
+        </p>
+        <a href="/transaction/{{_id}}">View details</a>
+    </article>
+</template>
