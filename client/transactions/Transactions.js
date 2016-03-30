@@ -1,7 +1,8 @@
-// Meteor.subscribe('transactions');
+/* global Template*/
+/* global Transactions*/
 
 Template.Transactions.onCreated(function() {
-    var self = this;
+    const self = this;
     self.autorun(function() {
         self.subscribe('transactions');
     });
