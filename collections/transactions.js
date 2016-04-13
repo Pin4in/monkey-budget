@@ -1,15 +1,19 @@
 Transactions = new Mongo.Collection('transactions');
 
 Transactions.allow({
-    insert: function(userId, Doc){
-        return !!userId;
-    }
+  insert: function(userId, doc) {
+    return !!userId;
+  },
+  update: function(userId, doc) {
+    return !!userId;
+  }
 });
 
+
 Category = new SimpleSchema({
-    name: {
-        type: String
-    }
+  name: {
+    type: String
+  }
 });
 
 TransactionSchema = new SimpleSchema({
@@ -48,8 +52,27 @@ TransactionSchema = new SimpleSchema({
         autoform: {
             type: "hidden"
         }
+    },
+    inMenu: {
+      type: Boolean,
+      defaultValue: false,
+      optional: true,
+      autoform: {
+        type: "hidden"
+      }
     }
 
+});
+
+// Add new method to update inMenu state
+Meteor.methods({
+  toggleMenuItem: function(id, currentState) {
+    Transactions.update(id, {
+      $set: {
+        inMenu: !currentState
+      }
+    });
+  }
 });
 
 
