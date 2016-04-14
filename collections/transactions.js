@@ -72,7 +72,11 @@ Meteor.methods({
         inMenu: !currentState
       }
     });
+  },
+  deleteRecipe: function(id) {
+      Transactions.remove(id);
   }
+
 });
 
 
