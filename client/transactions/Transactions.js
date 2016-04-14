@@ -13,3 +13,9 @@ Template.Transactions.helpers({
         return Transactions.find({});
     }
 });
+
+Template.Transactions.events({
+    'click .new-recipe': () => {
+        Session.set('NewRecipe', true);
+    }
+})
